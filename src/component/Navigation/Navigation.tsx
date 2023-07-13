@@ -1,5 +1,6 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { LinkContainer } from "react-router-bootstrap";
 
 const Navigation = () => {
   return (
@@ -13,7 +14,9 @@ const Navigation = () => {
               <Nav.Link href="#home">
                 Home<Link to="/">Home </Link>
               </Nav.Link>
-              <Nav.Link as={Link}>Link</Nav.Link>
+              <LinkContainer to="/">
+                <Nav.Link>Profile</Nav.Link>
+              </LinkContainer>
             </Nav>
           </Navbar.Collapse>
         </Container>
