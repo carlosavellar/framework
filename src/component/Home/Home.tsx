@@ -1,7 +1,9 @@
-import { Container, Navbar } from "react-bootstrap";
+import React from "react";
+import { Container } from "react-bootstrap";
 import Header from "./Header/Header";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Products from "../Products/Products";
 
 const Home = () => (
   <>
@@ -13,7 +15,7 @@ const Home = () => (
       </Row>
       <Row>
         <Col>
-          <p>Content</p>
+          <Products />
         </Col>
       </Row>
     </Container>

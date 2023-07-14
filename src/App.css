@@ -42,6 +42,7 @@ body {
   background: rgb(236, 123, 17);
 
   /* Chrome 10-25, Safari 5.1-6 */
+  background: url("./assets/fruits-bg.png");
   background: -webkit-linear-gradient(
     to right,
     rgba(236, 133, 19, 1),

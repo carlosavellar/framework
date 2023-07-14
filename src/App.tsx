@@ -6,11 +6,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Profile from "./component/pages/Profile/Profile";
 import RootWrapper from "./component/RootPageWrapper/RootPageWrapper";
+import ErrorPage from "./component/pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootWrapper />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
