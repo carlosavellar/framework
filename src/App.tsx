@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./App.css";
-import Login from "./component/pages/Login/Login";
-import Home from "./component/Home/Home";
+import Login from "./component/Pages/Login/Login";
+import Home from "./component/Pages/Home/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Profile from "./component/pages/Profile/Profile";
-import RootWrapper from "./component/RootPageWrapper/RootPageWrapper";
-import ErrorPage from "./component/pages/ErrorPage/ErrorPage";
+import Profile from "./component/Pages/Profile/Profile";
+import RootWrapper from "./component/utils/RootPageWrapper/RootPageWrapper";
+import ErrorPage from "./component/Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {

@@ -2,7 +2,8 @@ export interface IProductStateItem {
   id: number;
   name: string;
   description: string;
-  fruits: [];
+  price: number;
+  foto: string;
 }
 
 export interface IProductState {
