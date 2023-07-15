@@ -23,9 +23,9 @@ const Products = () => {
   return (
     <>
       <h1>Products</h1>
-      {/* {products.value.map((item: IProductStateItem) => {
+      {products.payload.value.map((item: IProductStateItem) => {
         return <div key={item.id}>{item.name}</div>;
-      })} */}
+      })}
     </>
   );
 };
