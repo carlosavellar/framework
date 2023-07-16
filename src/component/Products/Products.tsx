@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Dispatch } from "redux";
-import { IProductState, IProductStateItem } from "../../interfaces/IProduct";
+import { IProductStateItem } from "./../../interfaces/IProduct";
 import {
   fetchProduct,
   selectAllProducts,
 } from "../../store/slices/productSlice";
-import mockdata from "./../../mock-data/products.json";
+import mockedData from "./../../mock-data/products.json";
 
-export const Products = () => {
+const Products = () => {
   const products = useSelector(selectAllProducts);
   const dispatch = useDispatch();
   const [prodUm, setProdUm] = useState<Array<IProductStateItem>>([]);
 
   useEffect(() => {
-    dispatch(fetchProduct({ payload: mockdata }));
-  }, [mockdata]);
+    dispatch(fetchProduct(products));
+  }, [mockedData]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -27,6 +26,11 @@ export const Products = () => {
   return (
     <>
       <h1>Products</h1>
+      {products.map((item: IProductStateItem, index: number) => {
+        return <div key={index}>{item.name}</div>;
+      })}
     </>
   );
 };
+
+export default Products;

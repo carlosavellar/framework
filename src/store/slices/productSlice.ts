@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { fetchProductsApi } from "./../../utils/apiFruits";
 
 fetchProductsApi();
@@ -6,8 +6,8 @@ const initialState = {
   products: [
     {
       id: 1,
-      name: "Apple",
-      description: "Deliciois",
+      name: "Apple - ",
+      description: "Delicious",
       Price: 48,
       foto: "/src/assets/fotos/apple.jpg",
     },
@@ -146,7 +146,7 @@ export const productSlice = createSlice({
   },
   extraReducers(builder) {
     builder
-      .addCase(fetchProductsApi.pending, (state, action) => {
+      .addCase(fetchProductsApi.pending, (state) => {
         state.status = "loading";
       })
       .addCase(fetchProductsApi.fulfilled, (state, action) => {
@@ -160,9 +160,11 @@ export const productSlice = createSlice({
       });
   },
 });
-
+// eslint-disable-next-line
 export const selectAllProducts = (state: any) => state.products;
+// eslint-disable-next-line
 export const getProductsError = (state: any) => state.products.error;
+// eslint-disable-next-line
 export const getProductsStatus = (state: any) => state.products.status;
 
 export const { fetchProduct } = productSlice.actions;

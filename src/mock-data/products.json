@@ -2,15 +2,15 @@
     "value": [
         {
             "id": 1,
-            "name": "Apple",
-            "description": "Deliciois",
+            "name": "Apple - 2",
+            "description": "Delicious",
             "Price": 48,
             "foto": "/src/assets/fotos/apple.jpg"
         },
         {
             "id": 2,
             "name": "Avocado",
-            "description": "While preparing a delicious guacamole, I realized that the Avocato's creamy texture serves as the perfect framework for blending the flavors",
+            "description": "While preparing a delicious guacamole, I realized that the avocado's creamy texture serves as the perfect framework for blending the flavors",
             "Price": 64,
             "foto": "/src/assets/fotos/avocato.jpg"
         },

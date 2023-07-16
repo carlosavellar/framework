@@ -1,4 +1,19 @@
 {
   "editor.wrappingIndent": "indent",
-  "workbench.editor.wrapTabs": true
+  "workbench.editor.wrapTabs": true,
+  "cSpell.words": [
+    "autofetch",
+    "avocato",
+    "craco",
+    "Cramberry",
+    "firefox",
+    "ipynb",
+    "jupyter",
+    "jupyter.notebook.ipynb",
+    "kramberry",
+    "linebreak",
+    "rasperry",
+    "redhat",
+    "reduxjs"
+  ]
 }
