@@ -1,0 +1,13 @@
+.badge {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 0.1rem !important;
+}
+
+#logo {
+  width: "18rem" !important;
+  position: absolute;
+  top: "50px";
+  z-index: "1000";
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import Navigation from "./../Navigation/Navigation";
+import Navigation from "./Navigation";
 import { Outlet } from "react-router-dom";
 import "./RootPageWrapper.css";
 const RootPageWrapper = () => {

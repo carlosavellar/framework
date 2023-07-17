@@ -1,14 +1,16 @@
 import React from "react";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import { MdLocalGroceryStore } from "react-icons/md";
-
+import logo from "./../../assets/logo.svg";
+import ButtonCheckOut from "./ButtonCheckOut/ButtonCheckOut";
 const Navigation = () => {
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
-          <Navbar.Brand href="#home">Varanda</Navbar.Brand>
+          <Navbar.Brand href="#home">
+            <img id="logo" src={logo} alt="William Wallace Logo" />
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
@@ -19,9 +21,7 @@ const Navigation = () => {
                 <Nav.Link>Profile</Nav.Link>
               </LinkContainer>
             </Nav>
-            <Button size="lg" variant="info">
-              <MdLocalGroceryStore /> Check out
-            </Button>
+            <ButtonCheckOut />
           </Navbar.Collapse>
         </Container>
       </Navbar>

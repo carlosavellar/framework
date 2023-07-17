@@ -8,8 +8,6 @@ import {
 import mockedData from "./../../../mock-data/products.json";
 import ProductItem from "./ProductItem/ProductItem";
 import { Row } from "react-bootstrap";
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-// const images = require.context("../../../assets/);
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 

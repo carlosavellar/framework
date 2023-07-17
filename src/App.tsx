@@ -5,7 +5,7 @@ import Home from "./component/Pages/Home/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Profile from "./component/Pages/Profile/Profile";
-import RootWrapper from "./component/utils/RootPageWrapper/RootPageWrapper";
+import RootWrapper from "./component/UI/RootPageWrapper";
 import ErrorPage from "./component/Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
