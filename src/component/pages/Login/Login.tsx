@@ -1,10 +1,8 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Container from "react-bootstrap/Container";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
+
 import "./Login.css";
-import { Col, Row } from "react-bootstrap";
 
 function Login() {
   return (

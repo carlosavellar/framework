@@ -116,7 +116,7 @@ const initialState = {
       foto: "/src/assets/fotos/tangerine.jpg",
     },
     {
-      id: 14,
+      id: 15,
       name: "Tangerine T",
       description:
         "Tangerines, bright and aromatic, are citrus fruits adored for their refreshing, sweet-tart taste, vibrant orange color, and ability to brighten up any moment with their zesty zest.",
@@ -124,7 +124,7 @@ const initialState = {
       foto: "/src/assets/fotos/tangerine-t.jpg",
     },
     {
-      id: 14,
+      id: 16,
       name: "Water melon",
       description:
         "Tangerines, bright and aromatic, are citrus fruits adored for their refreshing, sweet-tart taste, vibrant orange color, and ability to brighten up any moment with their zesty zest.",
