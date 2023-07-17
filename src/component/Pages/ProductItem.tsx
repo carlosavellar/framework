@@ -1,10 +1,10 @@
 import React from "react";
 import { Card, Col } from "react-bootstrap";
-import { IProductStateItem } from "../../../../interfaces/IProduct";
-import placeholderImage from "./../../../../placeholder.jpg";
+import { IProductStateItem } from "../../interfaces/IProduct";
+import placeholderImage from "./../../placeholder.jpg";
 import "./ProductItem.css";
-import ProductItemForm from "../ProductItemForm";
-import { formatPrice } from "../../../../utils/formatPrice";
+import ProductItemForm from "./ProductItemForm";
+import { formatPrice } from "../../utils/formatPrice";
 
 export default function ProductItem(props: IProductStateItem) {
   const {

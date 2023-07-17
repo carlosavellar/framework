@@ -1,9 +1,9 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import Header from "./Header/Header";
+import Header from "./Header";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Products from "./../Products/Products";
+import Products from "./Products";
 
 const Home = () => (
   <>

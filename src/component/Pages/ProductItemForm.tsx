@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Button, Col, Row, Container } from "react-bootstrap";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
-import CounterInput from "../../UI/CounterInput/CounterInput";
+import CounterInput from "./../UI/CounterInput";
 
 const ProductItemForm = () => {
   const [isLoading, setLoading] = useState(false);

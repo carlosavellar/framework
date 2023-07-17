@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import logo from "./../../assets/logo.svg";
-import ButtonCheckOut from "./ButtonCheckOut/ButtonCheckOut";
+import ButtonCheckOut from "./ButtonCheckOut";
 const Navigation = () => {
   return (
     <>
