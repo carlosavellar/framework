@@ -6,8 +6,8 @@ import {
   selectAllProducts,
 } from "../../../store/slices/productSlice";
 import mockedData from "./../../../mock-data/products.json";
-import { Container, Row, Col } from "react-bootstrap";
 import ProductItem from "./ProductItem/ProductItem";
+import { Row } from "react-bootstrap";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 // const images = require.context("../../../assets/);
 
@@ -22,38 +22,25 @@ const Products = () => {
     dispatch(fetchProduct({ payload: mockedData }));
   }, [mockedData]);
 
-  function isPromise(products: any) {
-    return (
-      Promise.resolve(products) === products &&
-      typeof products.then === "function"
-    );
-  }
-
-  useEffect(() => {
+  function fetchDataObj(products: any) {
     try {
-      console.log(products.payload ? "🥣" : "nada");
       setProdUm(products.payload.value);
     } catch (err: any) {
       console.log(err.message);
     }
-  }, [products, isPromise]);
-  // console.log(prodUm.values, "values");
-  return (
-    <>
-      <h1>Products</h1>
+  }
 
-      {prodUm.map((item: IProductStateItem) => {
-        return (
-          <Container fluid key={item.id}>
-            <Row>
-              <Col>
-                <ProductItem {...item} />
-              </Col>
-            </Row>
-          </Container>
-        );
-      })}
-    </>
+  useEffect(() => {
+    fetchDataObj(products);
+  }, [fetchDataObj]);
+
+  return (
+    <Row>
+      <h1>Products</h1>
+      {prodUm.map((item: IProductStateItem) => (
+        <ProductItem {...item} key={item.id} />
+      ))}
+    </Row>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { MdLocalGroceryStore } from "react-icons/md";
 
 const Navigation = () => {
   return (
@@ -18,6 +19,9 @@ const Navigation = () => {
                 <Nav.Link>Profile</Nav.Link>
               </LinkContainer>
             </Nav>
+            <Button size="lg" variant="info">
+              <MdLocalGroceryStore /> Check out
+            </Button>
           </Navbar.Collapse>
         </Container>
       </Navbar>

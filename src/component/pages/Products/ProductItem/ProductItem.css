@@ -1,0 +1,9 @@
+.product-title {
+  position: absolute;
+  top: 14rem;
+}
+
+.card-title {
+  font-weight: 500;
+  color: azure;
+}

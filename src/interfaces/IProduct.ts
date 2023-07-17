@@ -7,5 +7,6 @@ export interface IProductStateItem {
 }
 
 export interface IProductState {
+  payload: any;
   value: Array<IProductStateItem>;
 }
