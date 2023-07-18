@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import "./RootComponent.css";
 import Login from "./Pages/Login";
 import Home from "./Pages/Home";
@@ -8,7 +8,6 @@ import Profile from "./Pages/Profile";
 import RootWrapper from "./UI/RootPageWrapper";
 import ErrorPage from "./Pages/ErrorPage";
 import Cart from "./UI/Cart";
-import CartProvider from "../store/CartProvider";
 
 const router = createBrowserRouter([
   {
@@ -40,10 +39,10 @@ const RootComponent = () => {
   const [isLogin, setIsLogin] = useState<boolean>(false);
 
   return (
-    <CartProvider>
+    <Fragment>
       {cartShow && <Cart cartShow={cartShow} />}
       <RouterProvider router={router} />
-    </CartProvider>
+    </Fragment>
   );
 };
 

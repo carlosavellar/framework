@@ -4,6 +4,11 @@ import { fetchProductsApi } from "./../../utils/apiFruits";
 fetchProductsApi();
 const initialState = {
   products: [],
+  cartItems: {
+    items: [],
+    total: 9,
+    showModal: false,
+  },
   status: "",
   error: "",
 };
@@ -22,7 +27,6 @@ export const productSlice = createSlice({
         state.status = "loading";
       })
       .addCase(fetchProductsApi.fulfilled, (state, action) => {
-        console.log(state);
         state.status = "succeeded";
         state.products = action.payload;
       })
@@ -34,6 +38,8 @@ export const productSlice = createSlice({
 });
 // eslint-disable-next-line
 export const selectAllProducts = (state: any) => state.products;
+
+export const selectTotal = (state: any) => state.cartItems.total;
 // eslint-disable-next-line
 export const getProductsError = (state: any) => state.products.error;
 // eslint-disable-next-line

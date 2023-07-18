@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import logo from "./../../assets/logo.svg";
 import ButtonCheckOut from "./ButtonCheckOut";
+import { useDispatch, useSelector } from "react-redux";
+import { selectTotal } from "../../store/slices/productSlice";
+
 const Navigation = () => {
+  const total = useSelector(selectTotal);
+  const dispatch = useDispatch();
+  const [getTotal, setGetTotal] = useState<number>(total);
+
+  useEffect(() => {
+    try {
+      setGetTotal(total);
+    } catch (err) {
+      console.log(err);
+    }
+  }, [total]);
+
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
@@ -18,10 +33,10 @@ const Navigation = () => {
                 <Nav.Link>Home</Nav.Link>
               </LinkContainer>
               <LinkContainer to="/profile">
-                <Nav.Link>Profile</Nav.Link>
+                <Nav.Link>Profile </Nav.Link>
               </LinkContainer>
             </Nav>
-            <ButtonCheckOut />
+            <ButtonCheckOut getTotal={getTotal} />
           </Navbar.Collapse>
         </Container>
       </Navbar>
