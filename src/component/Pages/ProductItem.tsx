@@ -17,16 +17,7 @@ export default function ProductItem(props: IProductStateItem) {
   } = props;
 
   const fotoRender = () => {
-    return (
-      <Card.Img
-        variant="top"
-        src={
-          typeof prodFoto === "number"
-            ? "./../../../../" + prodFoto
-            : placeholderImage
-        }
-      />
-    );
+    return <Card.Img variant="top" src={prodFoto} />;
   };
 
   return (

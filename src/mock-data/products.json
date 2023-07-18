@@ -5,112 +5,112 @@
             "name": "Apple - 2",
             "description": "Apple Inc (Apple) designs, manufactures, and markets smartphones, tablets.",
             "price": 48,
-            "foto": "/src/assets/fotos/apple.jpg"
+            "foto": "apple.jpg"
         },
         {
             "id": 2,
             "name": "Avocado",
             "description": "While preparing a delicious guacamole, I realized that the avocado's creamy texture serves as the perfect framework for blending the flavors",
             "price": 64,
-            "foto": "/src/assets/fotos/avocato.jpg"
+            "foto": "avocato.jpg"
         },
         {
             "id": 3,
             "name": "Banana",
             "description": "Bananas, a beloved fruit, are rich in nutrients, delicious, and versatile, enjoyed worldwide for their sweet taste, vibrant color, and convenient, peelable skin.",
             "price": 10,
-            "foto": "/src/assets/fotos/banana.jpg"
+            "foto": "banana.jpg"
         },
         {
             "id": 4,
             "name": "Blueberry",
             "description": "Blueberries, tiny and bursting with flavor, are antioxidant-rich fruits adored for their sweet-tart taste, vibrant color, and health benefits.",
             "price": 87,
-            "foto": "/src/assets/fotos/blueberry.jpg"
+            "foto": "blueberry.jpg"
         },
         {
             "id": 5,
             "name": "Cherry1",
             "description": "Cherries, succulent and colorful, are delicious fruits cherished for their sweet-tart taste, vibrant hues, and versatility in various culinary delights.",
             "price": 3,
-            "foto": "/src/assets/fotos/cherry.jpg"
+            "foto": "cherry.jpg"
         },
         {
             "id": 6,
             "name": "Cramberry",
             "description": "Cranberries, tart and vibrant, are antioxidant-packed fruits known for their tangy flavor, vibrant red hue, and potential health benefits.",
             "price": 100,
-            "foto": "/src/assets/fotos/kramberry.jpg"
+            "foto": "kramberry.jpg"
         },
         {
             "id": 7,
             "name": "Lemon",
             "description": "Lemons, zesty and refreshing, are citrus fruits cherished for their tangy taste, vibrant yellow color, and their versatility in culinary creations and invigorating beverages.",
             "price": 47,
-            "foto": "/src/assets/fotos/lemon.jpg"
+            "foto": "lemon.jpg"
         },
         {
             "id": 8,
             "name": "Mango",
             "description": "Mangoes, tropical and luscious, are juicy fruits prized for their sweet, tangy flavor, golden-orange flesh, and ability to transport taste buds to exotic lands.",
             "price": 24,
-            "foto": "/src/assets/fotos/mango.jpg"
+            "foto": "mango.jpg"
         },
         {
             "id": 9,
             "name": "Papaya",
             "description": "Papayas, tropical and luscious, are nutrient-rich fruits treasured for their sweet, musky flavor, vibrant orange flesh, and potential digestive health benefits.",
             "price": 7,
-            "foto": "/src/assets/fotos/papaya.jpg"
+            "foto": "papaya.jpg"
         },
         {
             "id": 10,
             "name": "Pineapple",
             "description": "Pineapples, tropical and juicy, are exotic fruits admired for their tangy-sweet taste, vibrant golden flesh, and the ability to instantly transport one to a sunny island paradise.",
             "price": 94,
-            "foto": "/src/assets/fotos/pineapple.jpg"
+            "foto": "pineapple.jpg"
         },
         {
             "id": 11,
             "name": "Pear",
             "description": "Pears, crisp and succulent, are versatile fruits celebrated for their sweet, juicy flavor, smooth texture, and ability to elevate both savory and sweet dishes with their delightful taste.",
             "price": 22,
-            "foto": "/src/assets/fotos/pear.jpg"
+            "foto": "pear.jpg"
         },
         {
             "id": 12,
             "name": "Rasperry",
             "description": "Raspberries, delicate and flavorful, are vibrant berries cherished for their tart-sweet taste, brilliant red color, and ability to add a burst of freshness to desserts and breakfasts alike.",
             "price": 65,
-            "foto": "/src/assets/fotos/rasperry.jpg"
+            "foto": "rasperry.jpg"
         },
         {
             "id": 13,
             "name": "Strawberry",
             "description": "Strawberries, luscious and vibrant, are beloved fruits cherished for their sweet-tart taste, ruby-red color, and versatility in desserts, salads, and refreshing summer treats.",
             "price": 4,
-            "foto": "/src/assets/fotos/strawberry.jpg"
+            "foto": "strawberry.jpg"
         },
         {
             "id": 14,
             "name": "Tangerine",
             "description": "Tangerines, bright and aromatic, are citrus fruits adored for their refreshing, sweet-tart taste, vibrant orange color, and ability to brighten up any moment with their zesty zest.",
             "price": 69,
-            "foto": "/src/assets/fotos/tangerine.jpg"
+            "foto": "tangerine.jpg"
         },
         {
             "id": 15,
             "name": "Tangerine T",
             "description": "Tangerines, bright and aromatic, are citrus fruits adored for their refreshing, sweet-tart taste, vibrant orange color, and ability to brighten up any moment with their zesty zest.",
             "price": 34,
-            "foto": "/src/assets/fotos/tangerine-t.jpg"
+            "foto": "tangerine-t.jpg"
         },
         {
             "id": 16,
             "name": "Water melon",
             "description": "Tangerines, bright and aromatic, are citrus fruits adored for their refreshing, sweet-tart taste, vibrant orange color, and ability to brighten up any moment with their zesty zest.",
             "price": 69,
-            "foto": "/src/assets/fotos/watermelon.jpg"
+            "foto": "watermelon.jpg"
         }
     ]
 }

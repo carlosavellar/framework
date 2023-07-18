@@ -1,31 +1,9 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button, Col, Row, Container, Form } from "react-bootstrap";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
-import { useDispatch } from "react-redux";
-import { addTotal } from "../../store/slices/productSlice";
 
 const ProductItemForm = (props: any) => {
-  const dispatchAddTotal = useDispatch();
-  const [isLoading, setLoading] = useState(false);
-  const [amount, setAmount] = useState<string>("");
-
-  const getProductAmountHandler = () => {
-    dispatchAddTotal(addTotal(amount));
-  };
-
-  useEffect(() => {
-    function simulateNetworkRequest() {
-      return new Promise((resolve) => setTimeout(resolve, 2000));
-    }
-    if (isLoading) {
-      simulateNetworkRequest().then(() => {
-        setLoading(false);
-      });
-    }
-  }, [isLoading, getProductAmountHandler]);
-
-  const handleClick = () => setLoading(true);
+  const [getAmount, setAmount] = useState<number>(0);
 
   return (
     <Container>
@@ -34,15 +12,17 @@ const ProductItemForm = (props: any) => {
           <div className="counter">
             <div className="btn__container">
               <Form.Control
-                name="Price"
-                type="text"
+                type="number"
+                name="amount"
                 min="0"
                 max="5"
-                // value={3}
-                // onChange={(event) =>
-                //   setAmount((event.target.value as any) * props.prodPrice)
-                // }
+                size="sm"
                 placeholder="0"
+                value={getAmount}
+                onChange={(event) => {
+                  event.preventDefault();
+                  setAmount(parseInt(event.target.value) as any);
+                }}
               />
             </div>
           </div>
@@ -50,12 +30,12 @@ const ProductItemForm = (props: any) => {
         <Col>
           <Button
             variant="primary"
-            disabled={isLoading}
-            // @ts-expect-error Taking too tough to solve this type. ass.: José Carlos
-            onClick={!isLoading ? handleClick : null}
+            onClick={(e) => {
+              console.log(e);
+            }}
           >
             <MdOutlineAddShoppingCart />
-            {isLoading ? "Loading…" : " Add"}
+            {" Add"}
           </Button>
         </Col>
       </Row>
