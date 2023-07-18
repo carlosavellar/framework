@@ -1,23 +1,29 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Button, Col, Row, Container } from "react-bootstrap";
+import { Button, Col, Row, Container, Form } from "react-bootstrap";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
-import CounterInput from "./../UI/CounterInput";
+import { useDispatch } from "react-redux";
+import { addTotal } from "../../store/slices/productSlice";
 
-const ProductItemForm = () => {
+const ProductItemForm = (props: any) => {
+  const dispatchAddTotal = useDispatch();
   const [isLoading, setLoading] = useState(false);
+  const [amount, setAmount] = useState<string>("");
+
+  const getProductAmountHandler = () => {
+    dispatchAddTotal(addTotal(amount));
+  };
 
   useEffect(() => {
     function simulateNetworkRequest() {
       return new Promise((resolve) => setTimeout(resolve, 2000));
     }
-
     if (isLoading) {
       simulateNetworkRequest().then(() => {
         setLoading(false);
       });
     }
-  }, [isLoading]);
+  }, [isLoading, getProductAmountHandler]);
 
   const handleClick = () => setLoading(true);
 
@@ -25,7 +31,21 @@ const ProductItemForm = () => {
     <Container>
       <Row>
         <Col>
-          <CounterInput />
+          <div className="counter">
+            <div className="btn__container">
+              <Form.Control
+                name="Price"
+                type="text"
+                min="0"
+                max="5"
+                // value={3}
+                // onChange={(event) =>
+                //   setAmount((event.target.value as any) * props.prodPrice)
+                // }
+                placeholder="0"
+              />
+            </div>
+          </div>
         </Col>
         <Col>
           <Button
