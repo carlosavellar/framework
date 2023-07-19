@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { IProductStateItem } from "./../../interfaces/IProduct";
+import { fetchProduct } from "./../../store/slices/productSlice";
+import mockedData from "./../../mock-data/products.json";
 import ProductItem from "./ProductItem";
 import { Row } from "react-bootstrap";
 import { useAppSelector, useAppDispatch } from "./../../store/store";
@@ -11,7 +13,11 @@ const Products = () => {
   const products = useAppSelector((state) => state.prod.products);
   const dispatch = useAppDispatch();
 
-  function handlerFetchProducts(products: any) {
+  useEffect(() => {
+    dispatch(fetchProduct({ payload: mockedData }));
+  }, [mockedData]);
+
+  function fetchDataObj(products: any) {
     try {
       setProdUm(products.payload.value);
     } catch (err: any) {
@@ -20,8 +26,8 @@ const Products = () => {
   }
 
   useEffect(() => {
-    handlerFetchProducts(products);
-  }, [handlerFetchProducts]);
+    fetchDataObj(products);
+  }, [fetchDataObj]);
 
   return (
     <Row>

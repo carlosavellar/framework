@@ -34,7 +34,6 @@ export const productSlice = createSlice({
 // eslint-disable-next-line
 export const selectAllProducts = (state: any) => state.products;
 
-export const selectTotal = (state: any) => state.cartItems.total;
 // eslint-disable-next-line
 export const getProductsError = (state: any) => state.products.error;
 // eslint-disable-next-line
