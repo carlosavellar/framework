@@ -4,11 +4,6 @@ import { fetchProductsApi } from "./../../utils/apiFruits";
 fetchProductsApi();
 const initialState = {
   products: [],
-  cartItems: {
-    items: [],
-    total: 9,
-    showModal: false,
-  },
   status: "",
   error: "",
 };
@@ -19,9 +14,6 @@ export const productSlice = createSlice({
   reducers: {
     fetchProduct: (state, action) => {
       state.products = action.payload;
-    },
-    addTotal: (state, action) => {
-      state.cartItems.total + action.payload;
     },
   },
   extraReducers(builder) {
@@ -48,6 +40,6 @@ export const getProductsError = (state: any) => state.products.error;
 // eslint-disable-next-line
 export const getProductsStatus = (state: any) => state.products.status;
 
-export const { fetchProduct, addTotal } = productSlice.actions;
+export const { fetchProduct } = productSlice.actions;
 
 export default productSlice.reducer;

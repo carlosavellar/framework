@@ -1,23 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import logo from "./../../assets/logo.svg";
 import ButtonCheckOut from "./ButtonCheckOut";
-import { useDispatch, useSelector } from "react-redux";
-import { selectTotal } from "../../store/slices/productSlice";
 
 const Navigation = () => {
-  const total = useSelector(selectTotal);
-  const dispatch = useDispatch();
-  const [getTotal, setGetTotal] = useState<number>(total);
-
-  useEffect(() => {
-    try {
-      setGetTotal(total);
-    } catch (err) {
-      console.log(err);
-    }
-  }, [total]);
+  const [getTotal, setGetTotal] = useState<number>(0);
 
   return (
     <>

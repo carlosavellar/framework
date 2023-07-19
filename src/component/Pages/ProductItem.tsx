@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Col } from "react-bootstrap";
 import { IProductStateItem } from "../../interfaces/IProduct";
-import placeholderImage from "./../../placeholder.jpg";
+// import placeholderImage from "./../../placeholder.jpg";
 import "./ProductItem.css";
 import ProductItemForm from "./ProductItemForm";
 import { formatPrice } from "../../utils/formatPrice";
