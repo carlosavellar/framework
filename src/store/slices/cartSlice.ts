@@ -8,10 +8,12 @@ export interface ICart {
 
 interface ICartState {
   carts: ICart[];
+  total: number;
 }
 
 const INITIAL_STATE: ICartState = {
-  carts: [],
+  carts: [{ id: 0, name: "n_", price: 34 }],
+  total: 0,
 };
 
 export const cartSlice = createSlice({
@@ -28,8 +30,11 @@ export const cartSlice = createSlice({
         price: action.payload.price,
       });
     },
+    sumTotal: (state) => {
+      state.total += 1;
+    },
   },
 });
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, sumTotal } = cartSlice.actions;
 export default cartSlice.reducer;

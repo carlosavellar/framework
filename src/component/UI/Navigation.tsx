@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import logo from "./../../assets/logo.svg";
 import ButtonCheckOut from "./ButtonCheckOut";
+import { useAppSelector } from "../../store/store";
 
 const Navigation = () => {
-  const [getTotal, setGetTotal] = useState<number>(0);
+  const total = useAppSelector((state) => state.cart.total);
 
   return (
     <>
@@ -24,7 +25,7 @@ const Navigation = () => {
                 <Nav.Link>Profile </Nav.Link>
               </LinkContainer>
             </Nav>
-            <ButtonCheckOut getTotal={getTotal} />
+            <ButtonCheckOut />
           </Navbar.Collapse>
         </Container>
       </Navbar>

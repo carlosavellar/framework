@@ -1,19 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Badge, Button } from "react-bootstrap";
 import { MdLocalGroceryStore } from "react-icons/md";
+import { useAppSelector } from "../../store/store";
+import Cart from "./Cart";
 
-interface ButtonCheckOut {
-  getTotal: number;
-}
+export default function ButtonCheckOut() {
+  const [show, setShow] = useState(false);
+  const cartItems = useAppSelector((state) => state.cart.total);
+  const handlerShowModal = () => {
+    setShow(true);
+  };
 
-export default function ButtonCheckOut(props: ButtonCheckOut) {
   return (
-    <Button size="lg" variant="info">
-      <Badge bg="danger" style={{ fontSize: "0.6rem" }}>
-        {props.getTotal}
-      </Badge>
-      <MdLocalGroceryStore />
-      Check out
-    </Button>
+    <>
+      <Button size="lg" variant="info" onClick={handlerShowModal}>
+        <Badge bg="danger" style={{ fontSize: "0.6rem" }}>
+          {cartItems}
+        </Badge>
+        <MdLocalGroceryStore />
+        Check out
+      </Button>
+      {show && <Cart cartShow={show} />}
+    </>
   );
 }

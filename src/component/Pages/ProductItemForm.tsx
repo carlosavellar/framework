@@ -1,9 +1,25 @@
 import React, { useState } from "react";
 import { Button, Col, Row, Container, Form } from "react-bootstrap";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
+import { useAppDispatch, useAppSelector } from "../../store/store";
+import { addToCart, sumTotal } from "../../store/slices/cartSlice";
 
-const ProductItemForm = (props: any) => {
+interface IProductItemForm {
+  prodId: number;
+  prodName: string;
+  prodPrice: number;
+}
+
+const ProductItemForm = (props: IProductItemForm) => {
+  const dispatch = useAppDispatch();
+  const cartItems = useAppSelector((state) => state.cart.carts);
+  const { prodId, prodName, prodPrice } = props;
   const [getAmount, setAmount] = useState<number>(0);
+  const [getTotal, setGetTotal] = useState<number>(0);
+
+  const handlerSumTotal = () => {
+    dispatch(sumTotal());
+  };
 
   return (
     <Container>
@@ -30,8 +46,11 @@ const ProductItemForm = (props: any) => {
         <Col>
           <Button
             variant="primary"
-            onClick={(e) => {
-              console.log(e);
+            onClick={() => {
+              dispatch(sumTotal());
+              dispatch(
+                addToCart({ id: prodId, name: prodName, price: prodPrice })
+              );
             }}
           >
             <MdOutlineAddShoppingCart />

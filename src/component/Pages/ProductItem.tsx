@@ -5,11 +5,10 @@ import { IProductStateItem } from "../../interfaces/IProduct";
 import "./ProductItem.css";
 import ProductItemForm from "./ProductItemForm";
 import { formatPrice } from "../../utils/formatPrice";
-import { useDispatch } from "react-redux";
 
 export default function ProductItem(props: IProductStateItem) {
-  const dispatchAddTotal = useDispatch();
   const {
+    id: prodId,
     name: prodName,
     description: prodDescription,
     foto: prodFoto,
@@ -33,7 +32,11 @@ export default function ProductItem(props: IProductStateItem) {
           </Card.Title>
           <Card.Text>{prodDescription.substring(0, 81)}</Card.Text>
 
-          <ProductItemForm productPrice={prodPrice} />
+          <ProductItemForm
+            prodId={prodId}
+            prodName={prodName}
+            prodPrice={prodPrice}
+          />
         </Card.Body>
       </Card>
       <div style={{ height: "1.2rem" }}></div>
