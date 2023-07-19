@@ -1,5 +1,10 @@
+* {
+  /* background-color: #3e4147; */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 .App {
-  /* text-align: center; */
+  /* color: #e2dddd; */
+  font-size: 1rem;
 }
 
 .App-logo {
@@ -35,26 +40,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-body {
-  /* fallback for old browsers */
-  background: rgb(236, 123, 17);
-
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: url("./../assets/fruits-bg.png");
-  background: -webkit-linear-gradient(
-    to right,
-    rgba(236, 133, 19, 1),
-    rgba(255, 165, 10, 1),
-    rgba(13, 214, 255, 1)
-  );
-
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(
-    to right,
-    rgba(236, 133, 19, 1),
-    rgba(255, 165, 10, 1),
-    rgba(13, 214, 255, 1)
-  );
 }
