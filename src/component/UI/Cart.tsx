@@ -10,6 +10,7 @@ const Cart = (props: ICart) => {
   const { cartShow } = props;
   const cartITems = useAppSelector((state) => state.cart.carts);
   const total = useAppSelector((state) => state.cart.total);
+  const totalPrice = useAppSelector((state) => state.cart.totalPrice);
   const [show, setShow] = useState(false);
   return (
     <CartModal show={cartShow} handleClose={() => setShow(false)}>
@@ -29,7 +30,7 @@ const Cart = (props: ICart) => {
             <td>Total</td>
             <td></td>
             <td></td>
-            <td>{total}</td>
+            <td>{totalPrice}</td>
           </tr>
         </tbody>
       </Table>
