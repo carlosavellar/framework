@@ -1,9 +1,9 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export interface ICart {
-  id: number;
-  name: string;
-  price: number;
+  id?: number;
+  name?: string;
+  price?: number;
 }
 
 interface ICartState {
@@ -14,10 +14,10 @@ interface ICartState {
 }
 
 const INITIAL_STATE: ICartState = {
-  carts: [{ id: 0, name: "n_", price: 34 }],
+  carts: [{}],
   total: 0,
   showModal: false,
-  totalPrice: 12,
+  totalPrice: 0,
 };
 
 export const cartSlice = createSlice({
@@ -37,14 +37,14 @@ export const cartSlice = createSlice({
     sumTotal: (state) => {
       state.total += 1;
     },
-    // sumTotalPrice: (state) => {
-    //   state.
-    // },
+    sumTotalPrice: (state, action: PayloadAction<number>) => {
+      state.totalPrice += action.payload;
+    },
     setShowModal: (state, action: PayloadAction<{ show: number }>) => {
       state.total = action.payload.show;
     },
   },
 });
 
-export const { addToCart, sumTotal } = cartSlice.actions;
+export const { addToCart, sumTotal, sumTotalPrice } = cartSlice.actions;
 export default cartSlice.reducer;

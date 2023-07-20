@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { Button, Col, Row, Container, Form } from "react-bootstrap";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { useAppDispatch, useAppSelector } from "../../store/store";
-import { addToCart, sumTotal } from "../../store/slices/cartSlice";
+import {
+  addToCart,
+  sumTotal,
+  sumTotalPrice,
+} from "../../store/slices/cartSlice";
 
 interface IProductItemForm {
   prodId: number;
@@ -48,6 +52,7 @@ const ProductItemForm = (props: IProductItemForm) => {
             variant="primary"
             onClick={() => {
               if (quantity !== 0) {
+                dispatch(sumTotalPrice(prodPrice * quantity));
                 dispatch(sumTotal());
                 dispatch(
                   addToCart({

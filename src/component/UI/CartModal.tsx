@@ -14,8 +14,8 @@ const CartModal = (props: ICartModal) => {
   const portalElement = document.getElementById("overlay") as HTMLElement;
   const [aquiModal, setAquiModal] = useState<boolean>(false);
   useEffect(() => {
-    console.log("from modal: ", show);
-    console.log("aquiModal: ", aquiModal);
+    // console.log("from modal: ", show);
+    // console.log("aquiModal: ", aquiModal);
   }, [show]);
 
   return (

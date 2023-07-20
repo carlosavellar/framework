@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import CartModal from "./CartModal";
 import { useAppSelector } from "../../store/store";
@@ -9,17 +9,25 @@ interface ICart {
 const Cart = (props: ICart) => {
   const { cartShow } = props;
   const cartITems = useAppSelector((state) => state.cart.carts);
-  const total = useAppSelector((state) => state.cart.total);
   const totalPrice = useAppSelector((state) => state.cart.totalPrice);
   const [show, setShow] = useState(false);
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-nocheck Error
+  useEffect(() => {
+    cartITems.forEach((item) => {
+      console.log(item.price);
+      // return item.price + item.price;
+    });
+  }, []);
+
   return (
     <CartModal show={cartShow} handleClose={() => setShow(false)}>
       <Table>
         <tbody>
-          {cartITems.map((item) => {
+          {cartITems.map((item, index) => {
             return (
-              <tr key={item.id}>
-                <td>1</td>
+              <tr key={index}>
                 <td>{item.id}</td>
                 <td>{item.name}</td>
                 <td>{item.price}</td>
