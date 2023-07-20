@@ -1,8 +1,9 @@
+import { PDFDownloadLink } from "@react-pdf/renderer";
 import React, { ReactNode, useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { createPortal } from "react-dom";
-
+import PdfDocument from "./PdfDocument";
 interface ICartModal {
   children: ReactNode;
   show: boolean;
@@ -44,6 +45,12 @@ const CartModal = (props: ICartModal) => {
               >
                 Oder
               </Button>
+              <PDFDownloadLink
+                document={<PdfDocument data={""} />}
+                fileName="buy-list.pdf"
+              >
+                Gerr
+              </PDFDownloadLink>
             </Modal.Footer>
           </Modal>
         </>,
