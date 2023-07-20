@@ -1,48 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Table } from "react-bootstrap";
 import CartModal from "./CartModal";
-
+import { useAppSelector } from "../../store/store";
 interface ICart {
   cartShow: boolean;
 }
 
 const Cart = (props: ICart) => {
-  const [show, setShow] = useState(false);
   const { cartShow } = props;
-  useEffect(() => {
-    setShow(cartShow);
-  }, [cartShow]);
-
+  const cartITems = useAppSelector((state) => state.cart.carts);
+  const total = useAppSelector((state) => state.cart.total);
+  const [show, setShow] = useState(false);
   return (
     <CartModal show={show} handleClose={() => setShow(false)}>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Products</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
+      <Table>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td colSpan={2}>Total</td>
-            <td>@twitter</td>
-          </tr>
+          {cartITems.map((item) => {
+            return (
+              <tr key={item.id}>
+                <td>1</td>
+                <td>{item.id}</td>
+                <td>{item.name}</td>
+                <td>{item.price}</td>
+              </tr>
+            );
+          })}
         </tbody>
+      </Table>
+      <Table>
+        <tr>
+          <td>Total</td>
+          <td>{total}</td>
+        </tr>
       </Table>
     </CartModal>
   );

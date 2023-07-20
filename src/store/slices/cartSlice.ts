@@ -9,11 +9,13 @@ export interface ICart {
 interface ICartState {
   carts: ICart[];
   total: number;
+  showModal: boolean;
 }
 
 const INITIAL_STATE: ICartState = {
   carts: [{ id: 0, name: "n_", price: 34 }],
   total: 0,
+  showModal: false,
 };
 
 export const cartSlice = createSlice({
@@ -32,6 +34,9 @@ export const cartSlice = createSlice({
     },
     sumTotal: (state) => {
       state.total += 1;
+    },
+    setShowModal: (state, action: PayloadAction<{ show: number }>) => {
+      state.total = action.payload.show;
     },
   },
 });

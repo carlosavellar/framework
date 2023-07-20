@@ -6,8 +6,6 @@ import ButtonCheckOut from "./ButtonCheckOut";
 // import { useAppSelector } from "../../store/store";
 
 const Navigation = () => {
-  // const total = useAppSelector((state) => state.cart.total);
-
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary">

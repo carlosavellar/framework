@@ -14,7 +14,7 @@ const ProductItemForm = (props: IProductItemForm) => {
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector((state) => state.cart.carts);
   const { prodId, prodName, prodPrice } = props;
-  const [getAmount, setAmount] = useState<number>(0);
+  const [quantity, setQuantity] = useState<number>(0);
   const [getTotal, setGetTotal] = useState<number>(0);
 
   const handlerSumTotal = () => {
@@ -34,10 +34,10 @@ const ProductItemForm = (props: IProductItemForm) => {
                 max="5"
                 size="sm"
                 placeholder="0"
-                value={getAmount}
+                value={quantity}
                 onChange={(event) => {
                   event.preventDefault();
-                  setAmount(parseInt(event.target.value) as any);
+                  setQuantity(parseInt(event.target.value) as any);
                 }}
               />
             </div>
@@ -47,10 +47,16 @@ const ProductItemForm = (props: IProductItemForm) => {
           <Button
             variant="primary"
             onClick={() => {
-              dispatch(sumTotal());
-              dispatch(
-                addToCart({ id: prodId, name: prodName, price: prodPrice })
-              );
+              if (quantity !== 0) {
+                dispatch(sumTotal());
+                dispatch(
+                  addToCart({
+                    id: prodId,
+                    name: prodName,
+                    price: prodPrice * quantity,
+                  })
+                );
+              }
             }}
           >
             <MdOutlineAddShoppingCart />
