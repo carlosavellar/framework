@@ -1,26 +1,27 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { createPortal } from "react-dom";
 
 interface ICartModal {
   children: ReactNode;
-  show: boolean;
+  show: boolean | undefined;
   handleClose: (value: boolean) => void;
 }
 
 const CartModal = (props: ICartModal) => {
   const { show, handleClose, children } = props;
   const portalElement = document.getElementById("overlay") as HTMLElement;
+  useEffect(() => {
+    console.log("from modal: ", show);
+  }, [show]);
 
   return (
     <div>
       {createPortal(
         <>
           <Modal show={show} onHide={() => handleClose(false)}>
-            <Modal.Header closeButton>
-              <Modal.Title>Your final list</Modal.Title>
-            </Modal.Header>
+            <Modal.Title>Your final list</Modal.Title>
 
             <Modal.Body>{props.children}</Modal.Body>
             <Modal.Footer>

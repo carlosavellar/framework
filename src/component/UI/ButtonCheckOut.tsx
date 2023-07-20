@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Badge, Button } from "react-bootstrap";
 import { MdLocalGroceryStore } from "react-icons/md";
 import { useAppSelector } from "../../store/store";
@@ -10,7 +10,9 @@ export default function ButtonCheckOut() {
   const handlerShowModal = () => {
     setShow(true);
   };
-
+  useEffect(() => {
+    console.log(show);
+  }, [show]);
   return (
     <>
       <Button size="lg" variant="info" onClick={handlerShowModal}>

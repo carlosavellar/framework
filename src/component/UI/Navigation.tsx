@@ -3,10 +3,10 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import logo from "./../../assets/logo.svg";
 import ButtonCheckOut from "./ButtonCheckOut";
-import { useAppSelector } from "../../store/store";
+// import { useAppSelector } from "../../store/store";
 
 const Navigation = () => {
-  const total = useAppSelector((state) => state.cart.total);
+  // const total = useAppSelector((state) => state.cart.total);
 
   return (
     <>
