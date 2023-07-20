@@ -15,14 +15,14 @@ export default function ButtonCheckOut() {
   }, [show]);
   return (
     <>
-      <Button size="lg" variant="info" onClick={handlerShowModal}>
+      <Button size="lg" variant="info" onClick={() => setShow(true) as any}>
         <Badge bg="danger" style={{ fontSize: "0.6rem" }}>
           {cartItems}
         </Badge>
         <MdLocalGroceryStore />
         Check out
       </Button>
-      {show && <Cart cartShow={show} />}
+      <Cart cartShow={show} />
     </>
   );
 }

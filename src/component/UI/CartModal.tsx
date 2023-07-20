@@ -1,31 +1,38 @@
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { createPortal } from "react-dom";
 
 interface ICartModal {
   children: ReactNode;
-  show: boolean | undefined;
+  show: boolean;
   handleClose: (value: boolean) => void;
 }
 
 const CartModal = (props: ICartModal) => {
   const { show, handleClose, children } = props;
   const portalElement = document.getElementById("overlay") as HTMLElement;
+  const [aquiModal, setAquiModal] = useState<boolean>(false);
   useEffect(() => {
     console.log("from modal: ", show);
+    console.log("aquiModal: ", aquiModal);
   }, [show]);
 
   return (
     <div>
       {createPortal(
         <>
-          <Modal show={show} onHide={() => handleClose(false)}>
-            <Modal.Title>Your final list</Modal.Title>
+          <Modal
+            show={show ? !aquiModal : show}
+            onHide={() => setAquiModal(false)}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Modal title</Modal.Title>
+            </Modal.Header>
 
             <Modal.Body>{props.children}</Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={() => handleClose(false)}>
+              <Button variant="secondary" onClick={() => setAquiModal(true)}>
                 Close
               </Button>
 
@@ -33,7 +40,7 @@ const CartModal = (props: ICartModal) => {
                 variant="primary"
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-nocheck Error
-                onClick={() => handleClose(false)}
+                onClick={() => console.log(Math.random() * 2)}
               >
                 Oder
               </Button>
