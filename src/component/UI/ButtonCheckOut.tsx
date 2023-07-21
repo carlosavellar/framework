@@ -23,6 +23,7 @@ export default function ButtonCheckOut() {
       <Button
         size="lg"
         variant="info"
+        disabled={cartItems === 0}
         onClick={() => {
           handlerShowModal();
           console.log(showBtn);
