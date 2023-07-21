@@ -1,26 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Badge, Button } from "react-bootstrap";
 import { MdLocalGroceryStore } from "react-icons/md";
 import { useAppSelector } from "../../store/store";
-import Cart from "./Cart";
+import CartModal from "./CartModal";
 
 export default function ButtonCheckOut() {
-  const [show, setShow] = useState(false);
+  const [showBtn, setShowBtn] = useState<boolean>(false);
   const cartItems = useAppSelector((state) => state.cart.total);
   const handlerShowModal = () => {
-    setShow(true);
+    setShowBtn(true);
   };
+  const handleClose = () => {
+    setShowBtn(false);
+  };
+
+  useEffect(() => {
+    console.log(showBtn);
+  }, [showBtn]);
 
   return (
     <>
-      <Button size="lg" variant="info" onClick={() => setShow(true) as any}>
+      <Button
+        size="lg"
+        variant="info"
+        onClick={() => {
+          handlerShowModal();
+          console.log(showBtn);
+        }}
+      >
         <Badge bg="danger" style={{ fontSize: "0.6rem" }}>
           {cartItems}
         </Badge>
         <MdLocalGroceryStore />
         Check out
       </Button>
-      <Cart cartShow={show} />
+      <CartModal showBtn={showBtn} handleClose={handleClose} />
     </>
   );
 }
