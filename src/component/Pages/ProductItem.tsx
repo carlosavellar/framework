@@ -1,10 +1,12 @@
 import React from "react";
 import { Card, Col } from "react-bootstrap";
 import { IProductStateItem } from "../../interfaces/IProduct";
-// import placeholderImage from "./../../placeholder.jpg";
+import placeholderImage from "./../../placeholder.jpg";
 import "./ProductItem.css";
 import ProductItemForm from "./ProductItemForm";
 import { formatPrice } from "../../utils/formatPrice";
+
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
 export default function ProductItem(props: IProductStateItem) {
   const {
@@ -16,7 +18,12 @@ export default function ProductItem(props: IProductStateItem) {
   } = props;
 
   const fotoRender = () => {
-    return <Card.Img variant="top" src={prodFoto} />;
+    return (
+      <Card.Img
+        variant="top"
+        src={`${baseUrl}/assets/fotos/${prodFoto || placeholderImage}`}
+      />
+    );
   };
 
   return (
