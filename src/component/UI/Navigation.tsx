@@ -25,7 +25,7 @@ const Navigation = () => {
                 <Nav.Link>Home</Nav.Link>
               </LinkContainer>
               <LinkContainer to="/profile">
-                <Nav.Link>Profile </Nav.Link>
+                <Nav.Link>Profile</Nav.Link>
               </LinkContainer>
             </Nav>
             <ButtonCheckOut />
