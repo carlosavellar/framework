@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import CartModal from "./CartModal";
 import { useAppSelector } from "../../store/store";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import PdfDocument from "./PdfDocument";
 interface ICart {
   cartShow: boolean;
 }
@@ -30,7 +32,15 @@ const Cart = (props: ICart) => {
               <tr key={index}>
                 <td>{item.id}</td>
                 <td>{item.name}</td>
-                <td>{item.price}</td>
+                <td>
+                  {item.price}{" "}
+                  <PDFDownloadLink
+                    document={<PdfDocument data={item} />}
+                    fileName="buy-list.pdf"
+                  >
+                    Gerr
+                  </PDFDownloadLink>
+                </td>
               </tr>
             );
           })}

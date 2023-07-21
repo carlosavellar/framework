@@ -10,9 +10,7 @@ export default function ButtonCheckOut() {
   const handlerShowModal = () => {
     setShow(true);
   };
-  useEffect(() => {
-    console.log(show);
-  }, [show]);
+
   return (
     <>
       <Button size="lg" variant="info" onClick={() => setShow(true) as any}>

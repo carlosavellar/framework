@@ -46,7 +46,7 @@ const CartModal = (props: ICartModal) => {
                 Oder
               </Button>
               <PDFDownloadLink
-                document={<PdfDocument data={""} />}
+                document={<PdfDocument data={"navi"} />}
                 fileName="buy-list.pdf"
               >
                 Gerr

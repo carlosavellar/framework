@@ -1,41 +1,95 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useAppSelector, useAppDispatch } from "./../../store/store";
+import { IUser, fetchUsers } from "../../store/slices/usersSlice";
+import userMockedData from "./../../mock-data/user.json";
 
 import "./Login.css";
 
-function Login() {
+interface ILogin {
+  onSetIsLoggedIn: () => void;
+}
+
+const Login = (props: ILogin) => {
+  const { onSetIsLoggedIn } = props;
+  const [clickedButton, setClickedButton] = useState("");
+  const [loadedUsers, setLoadedUsers] = useState<Array<IUser>>([]);
+  const [inputUserName, setInputUserName] = useState<string>("");
+  const [inputPass, setInputPass] = useState<string>("");
+  const users = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchUsers({ payload: userMockedData }));
+  }, [userMockedData]);
+
+  useEffect(() => {
+    setLoadedUsers(users);
+  }, [users]);
+
+  function fetchDataObj(users: any) {
+    try {
+      setLoadedUsers(users);
+    } catch (err: any) {
+      console.log(err.message);
+    }
+  }
+
+  useEffect(() => {
+    fetchDataObj(users);
+  }, [fetchDataObj]);
+
+  useEffect(() => {
+    console.log("Loaded Users:", loadedUsers);
+  }, [loadedUsers]);
+
+  const handlerValidateUser = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    console.log("fora do loggon");
+    return loadedUsers.filter((user) => {
+      console.log(user);
+      if (user.user_name == inputUserName) {
+        console.log("Dentro do loggon");
+
+        onSetIsLoggedIn();
+      }
+    });
+  };
+
   return (
     <div className="login-box">
-      {/* <Container>
-        <Row>
-          <Col> */}
       <Form className="p-5 col-example mh-100 form-login">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-          {/* <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text> */}
+          <Form.Control
+            type="text"
+            placeholder="Enter username"
+            value={inputUserName}
+            onChange={(event) => setInputUserName(event.target.value)}
+          />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            value={inputPass}
+            onChange={(event) => setInputPass(event.target.value)}
+          />
         </Form.Group>
         <Button
           variant="primary"
           type="submit"
           className="align-items-end"
-          disabled
+          onClick={(event) => handlerValidateUser(event)}
+          // disabled={inputUserName === "" || inputPass === ""}
         >
           Entrar
         </Button>
       </Form>
-      {/* </Col>
-        </Row>
-      </Container> */}
     </div>
   );
-}
+};
 
 export default Login;

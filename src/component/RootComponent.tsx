@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import "./RootComponent.css";
-import Login from "./Pages/Login";
 import Home from "./Pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -17,10 +16,6 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
       },
       {
         path: "/profile",
