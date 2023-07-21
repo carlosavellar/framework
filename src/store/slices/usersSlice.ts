@@ -35,6 +35,6 @@ const usersReducer = createSlice({
   },
 });
 
-export const { fetchUsers } = usersReducer.actions;
+export const { fetchUsers, setLoggedUser } = usersReducer.actions;
 
 export default usersReducer.reducer;

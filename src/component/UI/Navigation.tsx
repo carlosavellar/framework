@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { useAppSelector } from "./../../store/store";
 import logo from "./../../assets/logo.svg";
 import ButtonCheckOut from "./ButtonCheckOut";
 // import { useAppSelector } from "../../store/store";
 
 const Navigation = () => {
+  const logged = useAppSelector((state: any) => state.isLoggedIn);
+  useEffect(() => {
+    console.log(logged);
+  }, []);
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary">

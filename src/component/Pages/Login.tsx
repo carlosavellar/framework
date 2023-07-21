@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useAppSelector, useAppDispatch } from "./../../store/store";
-import { IUser, fetchUsers } from "../../store/slices/usersSlice";
+import {
+  IUser,
+  fetchUsers,
+  setLoggedUser,
+} from "../../store/slices/usersSlice";
 import userMockedData from "./../../mock-data/user.json";
 
 import "./Login.css";
@@ -46,13 +50,12 @@ const Login = (props: ILogin) => {
 
   const handlerValidateUser = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    console.log("fora do loggon");
     return loadedUsers.filter((user) => {
-      console.log(user);
       if (user.user_name == inputUserName) {
-        console.log("Dentro do loggon");
-
+        dispatch(setLoggedUser({ isLoggedIn: true }));
         onSetIsLoggedIn();
+      } else {
+        dispatch(setLoggedUser({ isLoggedIn: false }));
       }
     });
   };

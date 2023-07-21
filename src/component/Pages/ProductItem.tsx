@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Col } from "react-bootstrap";
 import { IProductStateItem } from "../../interfaces/IProduct";
-import placeholderImage from "./../../placeholder.jpg";
+import placeholderImage from "./../../assets/fotos/placeholder.jpg";
 import "./ProductItem.css";
 import ProductItemForm from "./ProductItemForm";
 import { formatPrice } from "../../utils/formatPrice";
@@ -34,9 +34,7 @@ export default function ProductItem(props: IProductStateItem) {
           <Card.Title className="product-title" data-bs-theme="light">
             {prodName}
           </Card.Title>
-          <Card.Title>
-            <b>{formatPrice(prodPrice)}</b>
-          </Card.Title>
+          <Card.Title>{formatPrice(prodPrice)}</Card.Title>
           <Card.Text>{prodDescription.substring(0, 81)}</Card.Text>
 
           <ProductItemForm
