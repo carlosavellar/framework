@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import "./RootComponent.css";
-import Home from "./Pages/Home";
+import Home from "../pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Profile from "./Pages/Profile";
-import RootWrapper from "./UI/RootPageWrapper";
-import ErrorPage from "./Pages/ErrorPage";
+import Profile from "../pages/Profile";
+import RootWrapper from "./ui/RootPageWrapper";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {

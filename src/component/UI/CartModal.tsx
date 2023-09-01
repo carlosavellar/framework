@@ -24,7 +24,7 @@ const CartModal = (props: ICartModal) => {
       <div>
         <Modal show={showBtn} onHide={() => handleClose()}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal title</Modal.Title>
+            <Modal.Title>Finalizar compra</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
@@ -38,22 +38,18 @@ const CartModal = (props: ICartModal) => {
                 handleClose();
               }}
             >
-              Close
-            </Button>
-
-            <Button
-              variant="primary"
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-nocheck Error
-              onClick={() => console.log(Math.random() * 2)}
-            >
-              Finish
+              Fechar
             </Button>
             <PDFDownloadLink
               document={<PdfDocument data={"navi"} />}
               fileName="buy-list.pdf"
             >
-              Gerr
+              <Button
+                variant="primary"
+                onClick={() => console.log(Math.random() * 2)}
+              >
+                Finish
+              </Button>
             </PDFDownloadLink>
           </Modal.Footer>
         </Modal>

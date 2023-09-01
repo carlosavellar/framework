@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Col, Row, Container, Form } from "react-bootstrap";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { useAppDispatch, useAppSelector } from "../../store/store";
@@ -21,9 +21,15 @@ const ProductItemForm = (props: IProductItemForm) => {
   const [quantity, setQuantity] = useState<number>(0);
   const [getTotal, setGetTotal] = useState<number>(0);
 
+  const [loadCart, setLoadCart] = useState(cartItems);
+
   const handlerSumTotal = () => {
     dispatch(sumTotal());
   };
+
+  useEffect(() => {
+    console.log(loadCart);
+  }, [loadCart]);
 
   return (
     <Container>

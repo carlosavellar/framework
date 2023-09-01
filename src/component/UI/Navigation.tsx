@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import { useAppSelector } from "./../../store/store";
+import { useAppSelector } from "../../store/store";
 import logo from "./../../assets/logo.svg";
 import ButtonCheckOut from "./ButtonCheckOut";
 // import { useAppSelector } from "../../store/store";

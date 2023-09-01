@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
-import Header from "./Header";
+import Header from "../component/ui/Header";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Products from "./Products";
+import Products from "../component/ui/Products";
 import Login from "./Login";
 
 const HomeContentHandler = () => (

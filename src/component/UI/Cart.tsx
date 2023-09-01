@@ -22,16 +22,14 @@ const Cart = () => {
                   <PDFDownloadLink
                     document={<PdfDocument data={item} />}
                     fileName="buy-list.pdf"
-                  >
-                    Gerr
-                  </PDFDownloadLink>
+                  ></PDFDownloadLink>
                 </td>
               </tr>
             );
           })}
           <tr>
             <td>Total</td>
-            <td></td>
+
             <td></td>
             <td>{totalPrice}</td>
           </tr>

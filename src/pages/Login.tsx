@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useAppSelector, useAppDispatch } from "./../../store/store";
-import {
-  IUser,
-  fetchUsers,
-  setLoggedUser,
-} from "../../store/slices/usersSlice";
-import userMockedData from "./../../mock-data/user.json";
+import { useAppSelector, useAppDispatch } from "../store/store";
+import { IUser, fetchUsers, setLoggedUser } from "../store/slices/usersSlice";
+import userMockedData from "../mock-data/user.json";
 
 import "./Login.css";
 
@@ -19,8 +15,8 @@ const Login = (props: ILogin) => {
   const { onSetIsLoggedIn } = props;
   const [clickedButton, setClickedButton] = useState("");
   const [loadedUsers, setLoadedUsers] = useState<Array<IUser>>([]);
-  const [inputUserName, setInputUserName] = useState<string>("");
-  const [inputPass, setInputPass] = useState<string>("");
+  const [inputUserName, setInputUserName] = useState<string>("neo");
+  const [inputPass, setInputPass] = useState<string>("magestic");
   const users = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
 
@@ -50,7 +46,7 @@ const Login = (props: ILogin) => {
 
   const handlerValidateUser = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    return loadedUsers.filter((user) => {
+    return loadedUsers.find((user) => {
       if (user.user_name == inputUserName) {
         dispatch(setLoggedUser({ isLoggedIn: true }));
         onSetIsLoggedIn();

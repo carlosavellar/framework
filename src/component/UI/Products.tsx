@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { IProductStateItem } from "./../../interfaces/IProduct";
-import { fetchProduct } from "./../../store/slices/productSlice";
-import mockedData from "./../../mock-data/products.json";
+import { IProductStateItem } from "../../interfaces/IProduct";
+import { fetchProduct } from "../../store/slices/productSlice";
+import mockedData from "../../mock-data/products.json";
 import ProductItem from "./ProductItem";
-import { Row } from "react-bootstrap";
-import { useAppSelector, useAppDispatch } from "./../../store/store";
+import { Col, Container, Row } from "react-bootstrap";
+import { useAppSelector, useAppDispatch } from "../../store/store";
+import SearchInput from "./SearchInput";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -31,7 +32,19 @@ const Products = () => {
 
   return (
     <Row>
-      <h1>Products</h1>
+      <Container>
+        <Row className="mt-8 pt-8 ">
+          <Col xs={3} pl={5}>
+            <h1>Products</h1>
+          </Col>
+          <Col
+            xs={9}
+            className="mt-8 pt-8 d-flex justify-content-center align-items-center"
+          >
+            <SearchInput />
+          </Col>
+        </Row>
+      </Container>
       {prodUm.map((item: IProductStateItem) => (
         <ProductItem {...item} key={item.id} />
       ))}

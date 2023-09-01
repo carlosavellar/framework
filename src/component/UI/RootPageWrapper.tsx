@@ -5,7 +5,7 @@ import "./RootPageWrapper.css";
 const RootPageWrapper = () => {
   return (
     <>
-      <div>
+      <div className="wrapper-beige">
         <Navigation />
         <Outlet />
       </div>
