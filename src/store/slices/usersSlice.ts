@@ -1,37 +1,39 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchUsersApi } from "../../utils/apiUser";
 
-fetchUsersApi();
-export interface IUser {
-  id: number;
-  first_name: string;
-  last_name: string;
-  user_name: string;
-  password: string;
-  isLoggedIn: boolean;
-}
-
-const INITIAL_STATE: Array<IUser> = [
-  {
-    id: 0,
-    first_name: "",
-    last_name: "",
-    user_name: "neo",
-    password: "magestic",
-    isLoggedIn: false,
-  },
-];
+const INITIAL_STATE = {
+  users: [],
+  status: "",
+  error: "",
+  isLoggedIn: false,
+};
 
 const usersReducer = createSlice({
-  name: "user",
+  name: "users",
   initialState: INITIAL_STATE,
   reducers: {
     fetchUsers: (state, action) => {
-      state = action.payload;
+      state.users = action.payload;
     },
     setLoggedUser: (state, action) => {
-      state = action.payload;
+      state.isLoggedIn = action.payload;
     },
+  },
+  extraReducers(builder) {
+    builder
+      .addCase(fetchUsersApi.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchUsersApi.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.users = action.payload;
+      })
+      .addCase(fetchUsersApi.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message
+          ? action.error.message
+          : "Request Failed";
+      });
   },
 });
 

@@ -1,5 +1,5 @@
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 // import { createPortal } from "react-dom";
@@ -12,12 +12,7 @@ interface ICartModal {
 
 const CartModal = (props: ICartModal) => {
   const { showBtn, handleClose } = props;
-  // const portalElement = document.getElementById("overlay") as HTMLElement;
   const [aquiModal, setAquiModal] = useState<boolean>(false);
-  useEffect(() => {
-    console.log("from modal: ", showBtn);
-    console.log("aquiModal: ", aquiModal);
-  }, [showBtn]);
 
   return (
     <>

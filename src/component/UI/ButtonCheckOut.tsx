@@ -6,10 +6,13 @@ import CartModal from "./CartModal";
 
 export default function ButtonCheckOut() {
   const [showBtn, setShowBtn] = useState<boolean>(false);
+
   const cartItems = useAppSelector((state) => state.cart.total);
+
   const handlerShowModal = () => {
     setShowBtn(true);
   };
+
   const handleClose = () => {
     setShowBtn(false);
   };

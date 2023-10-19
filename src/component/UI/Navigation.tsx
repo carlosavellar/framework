@@ -7,10 +7,12 @@ import ButtonCheckOut from "./ButtonCheckOut";
 // import { useAppSelector } from "../../store/store";
 
 const Navigation = () => {
-  const logged = useAppSelector((state: any) => state.isLoggedIn);
+  const isLoggeded = useAppSelector((state) => state.user.isLoggedIn);
+
   useEffect(() => {
-    console.log(logged);
+    console.log(isLoggeded);
   }, []);
+
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
@@ -24,9 +26,11 @@ const Navigation = () => {
               <LinkContainer to="/">
                 <Nav.Link>Home</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/profile">
-                <Nav.Link>Profile</Nav.Link>
-              </LinkContainer>
+              {isLoggeded && (
+                <LinkContainer to="/profile">
+                  <Nav.Link>Profile</Nav.Link>
+                </LinkContainer>
+              )}
             </Nav>
             <ButtonCheckOut />
           </Navbar.Collapse>

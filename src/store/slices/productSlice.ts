@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchProductsApi } from "./../../utils/apiFruits";
 
-fetchProductsApi();
 const initialState = {
   products: [],
   status: "",
@@ -27,7 +26,9 @@ export const productSlice = createSlice({
       })
       .addCase(fetchProductsApi.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.error.message ? action.error.message : "";
+        state.error = action.error.message
+          ? action.error.message
+          : "Request Failed";
       });
   },
 });
